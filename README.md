@@ -45,11 +45,11 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` dataset to **./dataset** folder and extract the content. \
+Download our `[OPDMulti]` [dataset](https://aspis.cmpt.sfu.ca/projects/opdmulti/OPDMulti.zip) to **./dataset** folder and extract the content. \
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
 ## Pretrained-Models
-You can download our pretrained [models]() to **./models** folder.
+You can download our pretrained [models](https://aspis.cmpt.sfu.ca/projects/opdmulti/models.zip) to **./models** folder.
 
 The folder contains the pretrained models trained with OPDMulti dataset **RGB** input. 
 There will be pretrained models for following OPDFormer variants:
