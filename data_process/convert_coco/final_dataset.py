@@ -2,8 +2,8 @@ import glob
 import os
 import pdb
 
-PROCESSPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0_output/'
-DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V0/'
+PROCESSPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/all/'
+DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3/'
 
 def existDir(dir):
     if not os.path.exists(dir):

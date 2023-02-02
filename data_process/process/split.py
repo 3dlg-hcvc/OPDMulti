@@ -4,42 +4,98 @@ import json
 import multiprocessing
 from time import time
 import pdb
+from tqdm import tqdm
+from tqdm.contrib.concurrent import process_map
+from functools import partial
 
 # Split the raw dataset into train/valid/test set based on the splitted model ids
-TESTIDSPATH = '/localhome/xsa55/Xiaohao/multiopd/data/MultiScan_dataset/scan_list/test_scan.json'
-VALIDIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data/MultiScan_dataset/scan_list/val_scan.json'
-RAWDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0/'
-OUTPUTDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0_output/'
+TESTIDSPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/test_scanids.json'
+VALIDIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/val_scanids.json'
+TRAINIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/train_scanids.json'
+RAWDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed/'
+OUTPUTDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/'
 
 def existDir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
-def process(model_path, train_test):
+def process(model_path, train_test, output_dir):
     # dir_names = ['origin', 'mask', 'depth', 'origin_annotation']
-    
+
     # for dir_name in dir_names:
     #     file_paths = glob.glob(f'{model_path}/{dir_name}/*')
     #     for file_path in file_paths:
     #         # pdb.set_trace()
     #         file_name = file_path.split('/')[-1]
     #         process_path = OUTPUTDATAPATH + train_test + '/' + dir_name + '/' + file_name
-    #         os.system(f'cp {file_path} {process_path}')
+    #         os.system(f'cp {file_path} {process_path}'
+
     file_path = model_path
-    process_path = OUTPUTDATAPATH + train_test + '/' + file_path.split('/')[-2] + '/' + file_path.split('/')[-1] 
+    process_path = output_dir + train_test + '/' + \
+        file_path.split('/')[-2] + '/' + file_path.split('/')[-1]
+    # print("=========================")
+    # pdb.set_trace()
     os.system(f'cp {file_path} {process_path}')
 
-# def save_file(paths):
-#     for model_path in paths:
-#         model_id = model_path.split('/')output_all_preprocess
-#             # process(model_path, 'test')
-#             pool.apply_async(process, (model_path, 'test',))
-#         elif model_id in valid_ids:
-#             # process(model_path, 'valid')
-#             pool.apply_async(process, (model_path, 'valid',))
-#         else:
-#             # process(model_path, 'train')
-#             pool.apply_async(process, (model_path, 'train',))
+def save_file(model_id, model_path, test_ids, valid_ids, train_ids, output_dir):
+    if model_id in test_ids:
+        process(model_path, 'test', output_dir)
+        # pool.apply_async(process, (model_path, 'test', output_dir))
+    elif model_id in valid_ids:
+        process(model_path, 'valid', output_dir)
+        # pool.apply_async(process, (model_path, 'valid', output_dir))
+    elif model_id in train_ids:
+        process(model_path, 'train', output_dir)
+        # pool.apply_async(process, (model_path, 'train', output_dir))
+
+
+def split(anno_path, types, test_ids, valid_ids, train_ids):
+    model_id = anno_path.split('/')[-1].split('.')[0].split("_")[0]
+    anno_file = open(anno_path)
+    anno = json.load(anno_file)
+    anno_file.close()
+
+    output_dir = OUTPUTDATAPATH + "all/"
+    for t in types:
+            temp_path = anno_path.replace("annotation", t)
+            tmp = temp_path.split(".")[0]
+            paths = glob.glob(f"{tmp}.*") + glob.glob(f"{tmp}_*")
+            for model_path in paths:
+                save_file(model_id, model_path, test_ids, valid_ids, train_ids, output_dir)
+
+    if anno["articulation"] == []:
+        output_dir = OUTPUTDATAPATH + "no_gt/"
+        for t in types:
+            temp_path = anno_path.replace("annotation", t)
+            tmp = temp_path.split(".")[0]
+            paths = glob.glob(f"{tmp}.*") + glob.glob(f"{tmp}_*")
+            for model_path in paths:
+                save_file(model_id, model_path, test_ids, valid_ids, train_ids, output_dir)
+    elif len(anno["articulation"]) > 0:
+        multi_obj = False
+        key = anno["articulation"][0]["object_key"]
+        if len(anno["articulation"]) > 1:
+            for annotation in anno["articulation"][1:]:
+                if annotation["object_key"] != key:
+                    multi_obj = True
+                    break
+        if multi_obj:
+            output_dir = OUTPUTDATAPATH + "multi_obj/"
+            for t in types:
+                temp_path = anno_path.replace("annotation", t)
+                tmp = temp_path.split(".")[0]
+                paths = glob.glob(f"{tmp}.*") + glob.glob(f"{tmp}_*")
+                for model_path in paths:
+                    save_file(model_id, model_path, test_ids, valid_ids, train_ids, output_dir)
+        else:
+            output_dir = OUTPUTDATAPATH + "single_obj/"
+            for t in types:
+                temp_path = anno_path.replace("annotation", t)
+                tmp = temp_path.split(".")[0]
+                paths = glob.glob(f"{tmp}.*") + glob.glob(f"{tmp}_*")
+                for model_path in paths:
+                    save_file(model_id, model_path, test_ids, valid_ids, train_ids, output_dir)
+
 
 if __name__ == "__main__":
     start = time()
@@ -54,39 +110,24 @@ if __name__ == "__main__":
     valid_ids = json.load(valid_ids_file)
     valid_ids_file.close()
 
+    train_ids_file = open(TRAINIDPATH)
+    train_ids = json.load(train_ids_file)
+    train_ids_file.close()
+
     dir_names = ['rgb/', 'mask/', 'depth/', 'annotation/']
 
+    output_dir = OUTPUTDATAPATH + "all/"
     for dir_name in dir_names:
-        existDir(OUTPUTDATAPATH + 'train/' + dir_name)
-        existDir(OUTPUTDATAPATH + 'valid/' + dir_name)
-        existDir(OUTPUTDATAPATH + 'test/' + dir_name)
+        existDir(output_dir + 'train/' + dir_name)
+        existDir(output_dir + 'valid/' + dir_name)
+        existDir(output_dir + 'test/' + dir_name)
 
-    # mask_paths = glob.glob(RAWDATAPATH + 'mask/*')
-    # origin_paths = glob.glob(RAWDATAPATH + 'origin/*')
-    # annotation_paths = glob.glob(RAWDATAPATH + 'origin_annotation/*')
-    # depth_paths = glob.glob(RAWDATAPATH + 'depth/*')
+
     model_paths = glob.glob(RAWDATAPATH + '*/*')
-    for model_path in model_paths:
-        model_id = model_path.split('/')[-1].split('-')[0]
-        # pdb.set_trace()
-       
-        if model_id in test_ids:
-            # process(model_path, 'test')
-            pool.apply_async(process, (model_path, 'test',))
-            # pool.apply_async(process, (model_path, 'valid',))
-            # pool.apply_async(process, (model_path, 'train',))
-        elif model_id in valid_ids:
-            # process(model_path, 'valid')
-            pool.apply_async(process, (model_path, 'valid',))
-        else:
-            # process(model_path, 'train')
-            pool.apply_async(process, (model_path, 'train',))
+    anno_paths = glob.glob(RAWDATAPATH + 'annotation/*')
+    types = ["annotation", "rgb", "depth", "mask"]
 
-            
-
-    pool.close()
-    pool.join()
+    process_map(partial(split, types=types, test_ids=test_ids, valid_ids=valid_ids, train_ids=train_ids), anno_paths, chunksize=1)
 
     stop = time()
     print(str(stop - start) + " seconds")
-

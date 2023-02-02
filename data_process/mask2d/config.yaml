@@ -20,13 +20,14 @@ output_annotation_dir: "${output_dir}/{scanId}/annotation"
 output_annotation_update_dir: "${output_dir}/{scanId}/annotation_update"
 output_frame_info_dir: "${output_dir}/{scanId}/frame_info"
 
-origin_data_dir: "/project/3dlg-hcvc/multiscan/anonymous_data"
-output_initial_data_dir: "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0"
+origin_data_dir: "/project/3dlg-hcvc/multiscan/anonymous_data2"
+output_initial_data_dir: "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed"
 
 step: 60
 num_frames: 0
 image_width: 256
 image_height: 192
+threshold: 0.05
 
 virtual_camera: False
 

@@ -6,8 +6,8 @@ import multiprocessing
 from time import time
 from PIL import Image
 
-DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V0'
-NEWPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V0_h5'
+DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3'
+NEWPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3_h5'
 
 def existDir(dir):
     if not os.path.exists(dir):

@@ -11,7 +11,7 @@ import pandas as pd
 
 # PROCESSDATAPATH = '/localhome/hja40/Desktop/Research/proj-motionnet/Dataset/process_data_real/'
 # PROCESSDATAPATH = '/Users/sun_xh/multiopd/scripts/back_project/output/'
-PROCESSDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0_output/'
+PROCESSDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/all/'
 
 def existDir(dir):
     if not os.path.exists(dir):
@@ -151,7 +151,9 @@ def get_annotation_info(seg_id, img_id, category_info, mask_path, motion):
                         mask.size, tolerance=2)
 
     if(annotation_info != None):
+        # pdb.set_trace()
         annotation_info['motion'] = motion
+
 
     return annotation_info
 
@@ -183,12 +185,13 @@ def get_annotations(img_folder, mask_folder):
         motion = motion_annotations[img_name][part_id]
         # motion = motion_annotations[img_name][11]
         # pdb.set_trace()
+        
         if motion['part_label'].strip() not in cat_id:
             print(motion['part_label'].strip())
         # pdb.set_trace()
         part_cat = cat_id[motion['part_label'].strip()]
         
-        category_info = {'id': part_cat, 'is_crowd': 0}
+        category_info = {'id': part_cat, 'is_crowd': 0, "object_key": motion["object_key"],}
         mask_path = os.path.join(mask_folder, mask_name)
 
         annotation_infos.append(pool.apply_async(get_annotation_info, (seg_id, img_id, category_info, mask_path, motion, )))
