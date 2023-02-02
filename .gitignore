@@ -8,7 +8,7 @@ train_scripts/backup
 run*.sh
 inference_checkpoint
 
-*.png
+# *.png
 *.diff
 *.jpg
 !/projects/DensePose/doc/images/*.jpg
