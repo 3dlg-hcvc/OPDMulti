@@ -1,0 +1,38 @@
+debug: false
+cpu_num: 8
+
+input_dir:
+ply_path: "${input_dir}/{scanId}/{scanId}.ply"
+align_path: "${input_dir}/{scanId}/{scanId}.align.json"
+rgb_path: "${input_dir}/{scanId}/{scanId}.mp4"
+depth_path: "${input_dir}/{scanId}/{scanId}.depth.zlib"
+confidence_path: "${input_dir}/{scanId}/{scanId}.confidence.zlib"
+metadata_path: "${input_dir}/{scanId}/{scanId}.json"
+cameras_path: "${input_dir}/{scanId}/{scanId}.jsonl"
+annotations_path: "${input_dir}/{scanId}/{scanId}.annotations.json"
+textured_mesh_path: "${input_dir}/{scanId}/textured_mesh/{scanId}.obj"
+
+output_dir:
+output_rgb_dir: "${output_dir}/{scanId}/rgb"
+output_depth_dir: "${output_dir}/{scanId}/depth"
+output_mask_dir: "${output_dir}/{scanId}/mask"
+output_annotation_dir: "${output_dir}/{scanId}/annotation"
+output_annotation_update_dir: "${output_dir}/{scanId}/annotation_update"
+output_frame_info_dir: "${output_dir}/{scanId}/frame_info"
+
+origin_data_dir: "/project/3dlg-hcvc/multiscan/anonymous_data"
+output_initial_data_dir: "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V0"
+
+step: 60
+num_frames: 0
+image_width: 256
+image_height: 192
+
+virtual_camera: False
+
+scan_processed: processed.csv
+
+# hydra configuration log output dir
+hydra:
+  run:
+    dir: "logs/configs/${now:%Y-%m-%d}/${now:%H-%M-%S}"

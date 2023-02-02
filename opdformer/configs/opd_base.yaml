@@ -1,0 +1,48 @@
+_BASE_: ./maskformer2_R50_bs16_50ep.yaml
+
+INPUT:
+  FORMAT: "RGB"
+  IMAGE_SIZE: 256
+  MAX_SIZE_TEST: 256
+  MAX_SIZE_TRAIN: 256
+  MIN_SIZE_TEST: 256
+  MIN_SIZE_TRAIN:
+  - 256
+  # DATASET_MAPPER_NAME: "motion_instance"
+
+DATALOADER:
+  NUM_WORKERS: 4
+
+DATASETS:
+  TRAIN: ("MotionNet_train",)
+  TEST: ("MotionNet_valid",)
+
+MODEL:
+  MOTIONNET:
+    TYPE: BMOC_V0
+  SEM_SEG_HEAD:
+    NUM_CLASSES: 3
+  MASK_ON: True # Useful for our MotionEvaluator, because it's from an older version detectron2
+  MASK_FORMER:
+    TRANSFORMER_DECODER_NAME: OPDMultiScaleMaskedTransformerDecoder
+    CLASS_WEIGHT: 2.0
+    MASK_WEIGHT: 5.0
+    DICE_WEIGHT: 5.0
+    MTYPE_WEIGHT: 2.0
+    MORIGIN_WEIGHT: 16.0
+    MAXIS_WEIGHT: 16.0
+    EXTRINSIC_WEIGHT: 30.0
+
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.0001
+  STEPS: (36000, 48000)
+  MAX_ITER: 60000
+  CHECKPOINT_PERIOD: 10000
+
+TEST:
+  AUG:
+    ENABLED: false
+    FLIP: false
+  EVAL_PERIOD: 10000
+SEED: 42
