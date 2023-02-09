@@ -66,19 +66,19 @@ python train.py \
 --output-dir <OUTPUT_DIR> \
 --data-path <PATH_TO_DATASET> \
 --input-format <RGB/depth/RGBD> \
---model_attr_path <PATH_TO_ATTR> \
+--model_attr_path <PATH_TO_ATTR> 
 ```
 * Model:
     * OPDFormer-C: 
-        * --config-file `/opdfomer/configs/opd_cc_real`
+        * --config-file `/opdfomer/configs/opd_cc_real.yaml`
     * OPDFormer-O:
-        * --config-file `/opdfomer/configs/opd_o_real`
+        * --config-file `/opdfomer/configs/opd_o_real.yaml`
     * OPDFormer-O-W:
-        * --config-file `/opdfomer/configs/opd_op_real`
+        * --config-file `/opdfomer/configs/opd_op_real.yaml`
     * OPDFormer-O-P:
-        * --config-file `/opdfomer/configs/opd_ow_real`
+        * --config-file `/opdfomer/configs/opd_ow_real.yaml`
 * Dataset:
-    * --data-path `dataset/MotionDataset_h5`
+    * --data-path `OPDMulti/MotionDataset_h5`
     * --model_attr_path: ` OPDMulti/obj_info.json `
 * Using pretrained model on OPDReal dataset: add the following command in the trianing command: 
     
