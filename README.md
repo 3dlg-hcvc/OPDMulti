@@ -93,12 +93,8 @@ python evaluate_on_log.py \
 * Use inference result file instead of pretrained model: --inference-file `<PATH_TO_INFERENCE_FILE>`, this will directly evaluate using the results without inferencing again
 
 ## Pretrained-Models
-You can download our pretrained [models](https://aspis.cmpt.sfu.ca/projects/opdmulti/models.zip) to **./models** folder.
 
-The folder contains the pretrained models trained with OPDMulti dataset **RGB** input. 
-There will be pretrained models for following OPDFormer variants:
-
-<!-- `[OPDFormer-C]` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `[OPDFormer-O]` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `[OPDFormer-P]` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+You can download our pretrained models for different input format from the following table.
 
 <table><tbody>
 <!-- START TABLE -->
