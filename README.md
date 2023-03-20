@@ -24,7 +24,7 @@ This repository contains the implementation of **OPDFormer** based methods for t
 ## Setup
 The implementation has been tested on Ubuntu 20.04, with Python 3.7, PyTorch 1.10.1, CUDA 11.1.1 and CUDNN 8.2.0.
 
-* Clone the repository (to be modified)
+* Clone the repository
 ```sh
 git clone git@github.com:3dlg-hcvc/OPDMulti-Release.git
 ```
