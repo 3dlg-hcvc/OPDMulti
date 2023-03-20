@@ -49,7 +49,7 @@ Download our `[OPDMulti]` [dataset](https://aspis.cmpt.sfu.ca/projects/opdmulti/
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
 ## Training
-To train from the scratch, you can use below commands. The output will include evaluation results on the val set.
+To train from the scratch, you can use the below commands. The output will include evaluation results on the val set.
 
 ```sh
 cd opdformer
@@ -62,17 +62,15 @@ python train.py \
 ```
 * Model:
     * OPDFormer-C: 
-        * --config-file `/opdfomer/configs/opd_cc_real.yaml`
+        * --config-file `/opdfomer/configs/opd_c_real.yaml`
     * OPDFormer-O:
         * --config-file `/opdfomer/configs/opd_o_real.yaml`
-    * OPDFormer-O-W:
-        * --config-file `/opdfomer/configs/opd_op_real.yaml`
-    * OPDFormer-O-P:
-        * --config-file `/opdfomer/configs/opd_ow_real.yaml`
+    * OPDFormer-P:
+        * --config-file `/opdfomer/configs/opd_p_real.yaml`
 * Dataset:
     * --data-path `OPDMulti/MotionDataset_h5`
     * --model_attr_path: ` OPDMulti/obj_info.json `
-* Using pretrained model on OPDReal dataset: add the following command in the trianing command: 
+* Using pretrained model on OPDReal dataset: add the following command in the training command: 
     
     `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL>`
 ## Evaluation
