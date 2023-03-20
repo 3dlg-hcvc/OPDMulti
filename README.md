@@ -26,7 +26,7 @@ The implementation has been tested on Ubuntu 20.04, with Python 3.7, PyTorch 1.1
 
 * Clone the repository (to be modified)
 ```sh
-git clone git@github.com:Sun-XH/OPD-Multi.git
+git clone git@github.com:3dlg-hcvc/OPDMulti-Release.git
 ```
 
 * Setup python environment to train the model
