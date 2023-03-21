@@ -48,6 +48,8 @@ python setup.py build install
 Download our `[OPDMulti]` [dataset](https://aspis.cmpt.sfu.ca/projects/opdmulti/OPDMulti.zip) (7.7G) to **./dataset** folder and extract the content. \
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
+If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD.git) repository.
+
 ## Training
 To train from the scratch, you can use the below commands. The output will include evaluation results on the val set.
 
