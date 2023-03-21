@@ -14,9 +14,9 @@ This repository contains the implementation of **OPDFormer** based methods for t
 
 - [Setup](#Setup)
 - [Dataset](#Dataset)
-- [Pretrained Models](#Pretrained-Models)
 - [Training](#Training)
 - [Evaluation](#Evaluation)
+- [Pretrained Models](#Pretrained-Models)
 - [Visualization](#Visualization)
 
 
