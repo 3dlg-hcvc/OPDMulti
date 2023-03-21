@@ -199,4 +199,29 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 
 
 
-## Visualization (To be done)
+## Visualization
+The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset ([download](https://aspis.cmpt.sfu.ca/projects/opdmulti/raw_dataset.zip)).
+
+And the visualization is using the inference file, which can be got after the evaluation.
+* Visualize the GT with 1000 random images in val set 
+  ```sh
+  python render_gt.py \
+  --output-dir vis_output \
+  --data-path <PATH_TO_DATASET> \
+  --valid-image <IMAGE_LIST_FILE> \
+  --is-real
+  ```
+* Visualize the PREDICTION with 1000 random images in val set
+  ```sh
+  python render_pred.py \
+  --output-dir vis_output \
+  --data-path <PATH_TO_DATASET> \
+  --model_attr_path <PATH_TO_ATTR> \
+  --valid-image <IMAGE_LIST_FILE> \
+  --inference-file <PATH_TO_INFERENCE_FILE> \
+  --score-threshold 0.8 \
+  --update-all \
+  --is-real
+  ```
+  * --data-path `dataset/MotionDataset`
+  * --valid_image `dataset/MotionDataset/valid_1000.json`
