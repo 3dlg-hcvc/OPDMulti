@@ -184,7 +184,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">6.6</td>
 <td align="center">2.6</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">pretrained OPDReal model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGBD</td>
