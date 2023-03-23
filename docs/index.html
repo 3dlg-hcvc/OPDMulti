@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="OPD: Single-view 3D Openable Part Detection">
+    <meta name="author" content="Hanxiao Jiang,
+                                 Yongsen Mao,
+                                 Manolis Savva,
+                                 Angel X. Chang">
+
+    <title>OPDMulti: Openable Part Detection for Multiple Objects</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+
+    <!-- Loads <model-viewer> for modern browsers: -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container"></div>
+        <h2>OPDMulti: Openable Part Detection for Multiple Objects</h2>
+        <!-- <h2>CVPR 2022</h2> -->
+        <hr>
+        <p class="authors">
+            <a> Xiaohao Sun*</a>,
+            <a href="https://jianghanxiao.github.io/"> Hanxiao Jiang*</a>,
+            <a href="https://msavva.github.io/"> Manolis Savva</a>,
+            <a href="https://angelxuanchang.github.io/"> Angel X. Chang</a>
+        </p>
+        <div class="btn-group" role="group" aria-label="Top menu">
+            <a class="btn btn-primary" href="https://github.com/3dlg-hcvc/OPDMulti-Release.git">Code</a> <!-- TODO: -->
+            <a class="btn btn-primary" href="">Paper</a> <!-- TODO: -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="img/teaser.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                    </video>
+                </div>
+            </div>
+            <hr>
+            <p>
+                We tackle the openable-part-detection (OPD) problem
+                where we identify in a single-view image parts that are
+                openable and their motion parameters. Our OPDFORMER
+                architecture outputs segmentations for openable parts on
+                potentially multiple objects, along with each part’s motion
+                parameters: motion type (translation or rotation, indicated
+                by blue or purple mask), motion axis and origin (see green
+                arrows and points). For each openable part, we predict the
+                motion parameters (axis and origin) in object coordinates
+                along with an object pose prediction to convert to camera
+                coordinates.
+            </p>
+        </div>
+
+        <!-- <div class="section">
+        <h2>Coordinate frames</h2>
+        <hr>
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="img/coord.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </video>
+            </div>
+        </div>
+        <hr>
+        <p>
+            We show the difference between the coordinate
+            frames we use in our work. In the case of a single object
+            (left), the global scene coordinate (S) is the same as the single
+            object coordinate (O).
+        </p>
+    </div> -->
+
+        <!-- <div class="section">
+        <h2>Video</h2>
+		<hr>
+		<div class="vcontainer">
+			<iframe class="video" src="https://www.youtube.com/embed/P85iCaD0rfc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+    </div> -->
+
+
+        <div class="section">
+            <h2>OPDMulti Task and Dataset</h2>
+            <hr>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="img/data_compare.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </div>
+            </div>
+            <hr>
+            <p>
+                Comparison of images from OPDMulti (left) to images from OPDReal and OPDSynth. Our OPDMulti
+                dataset is more realistic and diverse with images from varied viewpoints and with multiple/single/no
+                openable objects.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>OPDFormer Structure</h2>
+            <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="img/structure.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </div>
+            </div>
+            <hr>
+            <p>
+                Illustration of OPDFormer variants, which are based on a Mask2Former backbone.
+                The left side shows the overall network structure, while the right shows the mask module in detail.
+                The mask module predicts part motion parameters (motion origin MO, motion axis MA, motion type MT and
+                part class in green boxes).
+                The detected parts indicated in the center correspond to the queries indicated by colored boxes on the
+                right side.
+            </p>
+        </div>
+
+        <!-- <div class="section">
+        <h2>Paper</h2>
+        <hr>
+        <div>
+            <div class="list-group">
+                <a href="https://arxiv.org/pdf/2203.16421.pdf" 
+                   class="list-group-item">
+                    <img src="img/paper_thumbnails.png" style="width:100%; margin-right:-20px; margin-top:-10px;">
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+        <div class="section">
+            <h2>Download</h2>
+            <hr>
+            <div>
+                <div class="download files">
+                    <p>Below is the dataset for the OPDMulti task to download, more details please refer to <a
+                            href="https://github.com/3dlg-hcvc/OPDMulti-Release.git">OPDMulti Project</a></p>
+                    <p><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/OPDMulti.zip">OPDMulti Dataset</a></p>
+                    We also provide the pretrained model trained on both OPDMulti and OPDReal. The OPDReal model we
+                    provide is as the model weights for training our model on OPDMulti dataset.
+                    <style type="text/css">
+                        .tg {
+                            border-collapse: collapse;
+                            border-spacing: 0;
+                        }
+
+                        .tg td {
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 1px;
+                            font-family: Arial, sans-serif;
+                            font-size: 14px;
+                            overflow: hidden;
+                            padding: 10px 5px;
+                            word-break: normal;
+                        }
+
+                        .tg th {
+                            border-color: black;
+                            border-style: solid;
+                            border-width: 1px;
+                            font-family: Arial, sans-serif;
+                            font-size: 14px;
+                            font-weight: normal;
+                            overflow: hidden;
+                            padding: 10px 5px;
+                            word-break: normal;
+                        }
+
+                        .tg .tg-1wig {
+                            font-weight: bold;
+                            text-align: center;
+                            vertical-align: top
+                        }
+
+                        .tg .tg-d1dx {
+                            background-color: #FFF;
+                            color: #212529;
+                            text-align: center;
+                            vertical-align: middle
+                        }
+
+                        .tg .tg-f2ms {
+                            background-color: #FFF;
+                            color: #212529;
+                            text-align: right;
+                            vertical-align: middle
+                        }
+
+                        .tg .tg-8ffr {
+                            background-color: #FFF;
+                            color: #007BFF;
+                            text-align: center;
+                            vertical-align: top
+                        }
+
+                        .tg .tg-p76w {
+                            background-color: #FFF;
+                            color: #0056B3;
+                            text-align: center;
+                            text-decoration: underline;
+                            vertical-align: top
+                        }
+                    </style>
+                    <table class="tg" style="undefined;table-layout: fixed; width: 840px">
+                        <colgroup>
+                            <col style="width: 111px">
+                            <col style="width: 80px">
+                            <col style="width: 80px">
+                            <col style="width: 80px">
+                            <col style="width: 80px">
+                            <col style="width: 80px">
+                            <col style="width: 200px">
+                            <col style="width: 200px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="tg-1wig">Model Name</th>
+                                <th class="tg-1wig">Input</th>
+                                <th class="tg-1wig">PDet</th>
+                                <th class="tg-1wig">+M</th>
+                                <th class="tg-1wig">+MA</th>
+                                <th class="tg-1wig">+MAO</th>
+                                <th class="tg-1wig">OPDMulti Model</th>
+                                <th class="tg-1wig">OPDReal Model</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-C</td>
+                                <td class="tg-d1dx">RGB</td>
+                                <td class="tg-f2ms">31.9</td>
+                                <td class="tg-f2ms">30.5</td>
+                                <td class="tg-f2ms">14.1</td>
+                                <td class="tg-f2ms">12.9</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_c_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_c_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-O</td>
+                                <td class="tg-d1dx">RGB</td>
+                                <td class="tg-f2ms">30.4</td>
+                                <td class="tg-f2ms">28.8</td>
+                                <td class="tg-f2ms">5.1</td>
+                                <td class="tg-f2ms">1.6</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(175M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(175M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-P</td>
+                                <td class="tg-d1dx">RGB</td>
+                                <td class="tg-f2ms">34.1</td>
+                                <td class="tg-f2ms">32.8</td>
+                                <td class="tg-f2ms">20.1</td>
+                                <td class="tg-f2ms">16.0</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_p_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-C</td>
+                                <td class="tg-d1dx">depth</td>
+                                <td class="tg-f2ms">22.1</td>
+                                <td class="tg-f2ms">19.9</td>
+                                <td class="tg-f2ms">11.4</td>
+                                <td class="tg-f2ms">10.2</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_c_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_c_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-O</td>
+                                <td class="tg-d1dx">depth</td>
+                                <td class="tg-f2ms">24.9</td>
+                                <td class="tg-f2ms">22.6</td>
+                                <td class="tg-f2ms">5.8</td>
+                                <td class="tg-f2ms">1.9</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_o_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(175M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(175M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-P</td>
+                                <td class="tg-d1dx">depth</td>
+                                <td class="tg-f2ms">23.0</td>
+                                <td class="tg-f2ms">20.8</td>
+                                <td class="tg-f2ms">16.1</td>
+                                <td class="tg-f2ms">13.9</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_p_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-C</td>
+                                <td class="tg-d1dx">RGBD</td>
+                                <td class="tg-f2ms">25.3</td>
+                                <td class="tg-f2ms">23.6</td>
+                                <td class="tg-f2ms">14.2</td>
+                                <td class="tg-f2ms">13.5</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_c_rgbd.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-O</td>
+                                <td class="tg-d1dx">RGBD</td>
+                                <td class="tg-f2ms">24.1</td>
+                                <td class="tg-f2ms">22.0</td>
+                                <td class="tg-f2ms">6.6</td>
+                                <td class="tg-f2ms">2.6</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(175M)
+                                </td>
+                                <td class="tg-p76w"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth"><span
+                                            style="text-decoration:underline;color:#0056B3;background-color:transparent">model</span></a>(175M)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-d1dx">OPDFormer-P</td>
+                                <td class="tg-d1dx">RGBD</td>
+                                <td class="tg-f2ms">28.6</td>
+                                <td class="tg-f2ms">26.5</td>
+                                <td class="tg-f2ms">18.7</td>
+                                <td class="tg-f2ms">17.2</td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_p_rgbd.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)
+                                </td>
+                                <td class="tg-8ffr"><a
+                                        href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth"><span
+                                            style="text-decoration:none;color:#007BFF;background-color:transparent">model</span></a>(169M)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="bibtexsection">
+            @article{jiang2022opd,
+                title={OPD: Single-view 3D Openable Part Detection}, 
+                author={Jiang, Hanxiao and Mao, Yongsen and Savva, Manolis and Chang, Angel X},
+                journal={arXiv preprint arXiv:2203.16421},
+                year={2022}
+            }
+        </div>
+    </div> -->
+
+        <div class="section">
+            <h2>Acknowledgements</h2>
+            <hr>
+            <div class="acknowledgements">
+                This work was funded in part by a Canada CIFAR AI Chair, a Canada Research Chair and NSERC Discovery
+                Grant, and enabled in part by support from WestGrid and Compute Canada. We thank <a
+                    href="https://github.com/SamMaoYS">Yongsen Mao</a> for helping us process the data.
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>Send feedback and questions to <a href="mailto: xiaohao_sun@sfu.ca">Xiaohao Sun</a>. Website template
+                from <a href="https://www.vincentsitzmann.com/metasdf/">MetaSDF</a>. </p>
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
