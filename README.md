@@ -108,8 +108,8 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <th valign="bottom">+M</th>
 <th valign="bottom">+MA</th>
 <th valign="bottom">+MAO</th>
-<th valign="bottom">Model</th>
-<th valign="bottom">Pretrained OPDReal model (used for training)</th>
+<th valign="bottom">OPDMulti Model</th>
+<th valign="bottom">OPDReal Model</th>
 <!-- TABLE BODY -->
 <!-- ROW: OPDFormer with RGB input -->
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
@@ -119,7 +119,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">14.1</td>
 <td align="center">12.9</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_c_rgb.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_c_rgb.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_c_rgb.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGB</td>
@@ -128,7 +128,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">5.1</td>
 <td align="center">1.6</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth">pretrained OPDReal model</a>(175M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGB</td>
@@ -137,7 +137,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">20.1</td>
 <td align="center">16.0</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_p_rgb.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with depth input -->
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
@@ -147,7 +147,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">11.4</td>
 <td align="center">10.2</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_c_depth.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_c_depth.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_c_depth.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">depth</td>
@@ -156,7 +156,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">5.8</td>
 <td align="center">1.9</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_o_depth.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth">pretrained OPDReal model</a>(175M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
 <td align="center">depth</td>
@@ -165,7 +165,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">16.1</td>
 <td align="center">13.9</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_p_depth.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with RGBD input -->
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
@@ -175,7 +175,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">14.2</td>
 <td align="center">13.5</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_c_rgbd.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGBD</td>
@@ -184,7 +184,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">6.6</td>
 <td align="center">2.6</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">pretrained OPDReal model</a>(175M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGBD</td>
@@ -193,7 +193,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 <td align="center">18.7</td>
 <td align="center">17.2</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_p_rgbd.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth">pretrained OPDReal model</a>(169M)</td>
+<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth">model</a>(169M)</td>
 </tr>
 </tbody></table>
 
