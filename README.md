@@ -7,7 +7,7 @@ This repository contains the implementation of **OPDFormer** based methods for t
 <p align="center"><img src="fig/teaser.png" width="100%"></p>
 
 
-[arXiv]()&nbsp; [Website]()
+[arXiv]()&nbsp; [Website](https://3dlg-hcvc.github.io/OPDMulti/)
 
 
 ## Content
@@ -26,7 +26,7 @@ The implementation has been tested on Ubuntu 20.04, with Python 3.7, PyTorch 1.1
 
 * Clone the repository
 ```sh
-git clone git@github.com:3dlg-hcvc/OPDMulti-Release.git
+git clone git@github.com:3dlg-hcvc/OPDMulti.git
 ```
 
 * Setup python environment to train the model
