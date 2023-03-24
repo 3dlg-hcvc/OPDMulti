@@ -45,7 +45,7 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` dataset (7.7G) [download script]() to **./dataset** folder and extract the content. \
+Download our `[OPDMulti]` dataset (7.7G) [download link]() to **./dataset** folder and extract the content. \
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
 If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD.git) repository.
@@ -201,7 +201,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 
 
 ## Visualization
-The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset ([download script]()).
+The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset ([download link]()).
 
 And the visualization is using the inference file, which can be got after the evaluation.
 * Visualize the GT with 1000 random images in val set 
