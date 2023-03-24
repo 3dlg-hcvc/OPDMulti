@@ -45,7 +45,7 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` [dataset](https://aspis.cmpt.sfu.ca/projects/opdmulti/OPDMulti.zip) (7.7G) to **./dataset** folder and extract the content. \
+Download our `[OPDMulti]` dataset (7.7G) [download script]() to **./dataset** folder and extract the content. \
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
 If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD.git) repository.
@@ -94,9 +94,10 @@ python evaluate_on_log.py \
 
 ## Pretrained-Models
 
-You can download our pretrained models (OPDReal and OPDMulti) for different input format from the following table.
-For people who want to just test/evaluate our model, you can download the pretrained models on OPDMulti dataset.
-For those who want to train by themselves, you can download the pretrained OPDReal models to train your own model on OPDMulti.
+You can download our pretrained model weights (on both OPDReal and OPDMulti) for different input format (RGB, RGB-D, depth) from the following table.
+
+For people who want to just test/evaluate our model, you can download the pretrained model weights on OPDMulti dataset.
+For those who want to train by themselves, you can download the pretrained OPDReal model weights to train your own model on OPDMulti.
 
 ### OPDMulti
 <table><tbody>
