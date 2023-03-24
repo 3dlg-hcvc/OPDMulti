@@ -201,7 +201,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 
 
 ## Visualization
-The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset ([download](https://aspis.cmpt.sfu.ca/projects/opdmulti/raw_dataset.zip)).
+The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset ([download script]()).
 
 And the visualization is using the inference file, which can be got after the evaluation.
 * Visualize the GT with 1000 random images in val set 
