@@ -2,7 +2,7 @@
 [Xiaohao Sun*](https://ca.linkedin.com/in/xiaohao-sun-237537195?trk=public_profile_browsemap), [Hanxiao Jiang*](https://jianghanxiao.github.io/), [Manolis Savva](https://msavva.github.io/), [Angel Xuan Chang](http://angelxuanchang.github.io/)
 
 ## Overview
-This repository contains the implementation of **OPDFormer** based methods for the new proposed **OPDMulti** task and corresponding dataset. The code is based on [Detectron2](https://github.com/facebookresearch/detectron2) and [OPD](https://github.com/3dlg-hcvc/OPD.git)
+This repository contains the implementation of **OPDFormer** based methods for the new proposed **OPDMulti** task and corresponding dataset. The code is based on [Detectron2](https://github.com/facebookresearch/detectron2) and [OPD](https://github.com/3dlg-hcvc/OPD.git). And the **OPDFormer** models was built on [Mask2Former](https://github.com/facebookresearch/Mask2Former).
 
 <p align="center"><img src="fig/teaser.png" width="100%"></p>
 
@@ -49,6 +49,8 @@ Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
 If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD.git) repository.
+
+
 
 ## Training
 To train from the scratch, you can use the below commands. The output will include evaluation results on the val set.
@@ -228,3 +230,14 @@ And the visualization is using the inference file, which can be got after the ev
   ```
   * --data-path `dataset/MotionDataset`
   * --valid_image `dataset/MotionDataset/valid_1000.json`
+
+## Citation
+If you find this code useful, please consider citing:
+```bibtex
+@article{sun2023opdmulti,
+  title={OPDMulti: Openable Part Detection for Multiple Objects},
+  author={Sun, Xiaohao and Jiang, Hanxiao and Savva, Manolis and Chang, Angel Xuan},
+  journal={arXiv preprint arXiv:2303.14087},
+  year={2023}
+}
+```
