@@ -240,4 +240,30 @@ If you find this code useful, please consider citing:
   journal={arXiv preprint arXiv:2303.14087},
   year={2023}
 }
+
+@article{mao2022multiscan,
+  title={MultiScan: Scalable RGBD scanning for 3D environments with articulated objects},
+  author={Mao, Yongsen and Zhang, Yiming and Jiang, Hanxiao and Chang, Angel and Savva, Manolis},
+  journal={Advances in Neural Information Processing Systems},
+  volume={35},
+  pages={9058--9071},
+  year={2022}
+}
+
+@inproceedings{jiang2022opd,
+  title={OPD: Single-view 3D openable part detection},
+  author={Jiang, Hanxiao and Mao, Yongsen and Savva, Manolis and Chang, Angel X},
+  booktitle={Computer Vision--ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23--27, 2022, Proceedings, Part XXXIX},
+  pages={410--426},
+  year={2022},
+  organization={Springer}
+}
+
+@inproceedings{cheng2022masked,
+  title={Masked-attention mask transformer for universal image segmentation},
+  author={Cheng, Bowen and Misra, Ishan and Schwing, Alexander G and Kirillov, Alexander and Girdhar, Rohit},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={1290--1299},
+  year={2022}
+}
 ```
