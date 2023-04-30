@@ -30,14 +30,17 @@ git clone git@github.com:3dlg-hcvc/OPDMulti.git
 ```
 
 * Setup python environment to train the model
-```sh
-conda create -n opdmulti python=3.7 
+<!-- conda create -n opdmulti python=3.7 
 conda activate opdmulti
 pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.10/index.html
 pip install -U opencv-python
 pip install git+https://github.com/cocodataset/panopticapi.git
-pip install setuptools==59.5.0
+pip install setuptools==59.5.0 -->
+```sh
+conda create -n opdmulti python=3.7 
+conda activate opdmulti
+
 pip install -r requirements.txt
 
 cd opdformer/mask2former/modeling/pixel_decoder/ops
