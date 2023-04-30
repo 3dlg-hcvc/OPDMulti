@@ -6,7 +6,7 @@ torchaudio==0.10.0
 detectron2
 opencv-python
 setuptools==59.5.0
--e git+https://github.com/cocodataset/panopticapi.git#egg=panopticapi
+git+https://github.com/cocodataset/panopticapi.git
 cython
 scipy
 shapely
