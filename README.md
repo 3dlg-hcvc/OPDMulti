@@ -48,10 +48,10 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) to **./dataset** folder and extract the content. \
+Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) to **dataset/** folder and extract the content. \
 We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
 
-If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD.git) repository.
+If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
 
 
 
@@ -77,7 +77,7 @@ python train.py \
 * Dataset:
     * --data-path `OPDMulti/MotionDataset_h5`
     * --model_attr_path: ` OPDMulti/obj_info.json `
-* Using pretrained model on OPDReal dataset (we use the pretrained model on OPDReal dataset to train the model on OPDMulti dataset in our paper): add the following command in the training command: 
+* Using pretrained model on OPDReal dataset (we use the pretrained model on OPDReal dataset to finetune the model on OPDMulti dataset in our paper): add the following command in the training command: 
     
     `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL>`
 ## Evaluation
@@ -270,3 +270,7 @@ If you find this code useful, please consider citing:
   year={2022}
 }
 ```
+
+## Acknowledgement
+This work was funded in part by a Canada CIFAR AI Chair, a Canada Research Chair and
+NSERC Discovery Grant, and enabled in part by support from WestGrid and Compute Canada. We thank Yongsen Mao for helping us with the data processing procedure. We also thank Jiayi Liu, Sonia Raychaudhuri, Ning Wang, Yiming Zhang for feedback on paper drafts.
