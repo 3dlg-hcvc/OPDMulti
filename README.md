@@ -211,7 +211,7 @@ The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) r
 And the visualization is using the inference file, which can be got after the evaluation.
 * Visualize the GT with 1000 random images in val set 
   ```sh
-  cd opdformer/visualization
+  cd opdformer
   python render_gt.py \
   --output-dir vis_output \
   --data-path <PATH_TO_DATASET> \
@@ -220,7 +220,7 @@ And the visualization is using the inference file, which can be got after the ev
   ```
 * Visualize the PREDICTION with 1000 random images in val set
   ```sh
-  cd opdformer/visualization
+  cd opdformer
   python render_pred.py \
   --output-dir vis_output \
   --data-path <PATH_TO_DATASET> \
