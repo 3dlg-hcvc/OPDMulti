@@ -4,6 +4,7 @@ from detectron2.config import get_cfg
 from detectron2.data import MetadataCatalog, DatasetCatalog
 from detectron2.utils.visualizer import Visualizer, ColorMode
 from detectron2.utils.logger import setup_logger
+from detectron2.projects.deeplab import add_deeplab_config
 
 import os
 import io
@@ -17,11 +18,11 @@ import matplotlib.pyplot as plt
 from numpy import dot
 from numpy.linalg import norm
 
-from motlib import (
-    MotionTrainer,
+from mask2former import (
     add_motionnet_config,
     register_motion_instances,
     MotionVisualizer,
+    add_maskformer2_config
 )
 
 MOTION_TYPE = {0: "rotation", 1: "translation"}
@@ -71,6 +72,8 @@ def get_iou(bb1, bb2):
 def setup_cfg(args):
     # load config from file and command-line arguments
     cfg = get_cfg()
+    add_deeplab_config(cfg)
+    add_maskformer2_config(cfg)
     add_motionnet_config(cfg)
     cfg.merge_from_file(args.config_file)
 
@@ -86,7 +89,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description="Train motion net")
     parser.add_argument(
         "--config-file",
-        default="configs/bmcc.yaml",
+        default="configs/vis/bmcc.yaml",
         metavar="FILE",
         help="path to config file",
     )

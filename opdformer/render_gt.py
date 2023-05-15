@@ -6,14 +6,17 @@ import numpy as np
 import json
 
 from detectron2.data import MetadataCatalog, DatasetCatalog
+from detectron2.projects.deeplab import add_deeplab_config
 from detectron2.config import get_cfg
 from detectron2.utils.logger import setup_logger
 
-from motlib import register_motion_instances, MotionVisualizer, add_motionnet_config
+from mask2former import register_motion_instances, MotionVisualizer, add_motionnet_config, add_maskformer2_config
 
 def setup_cfg(args):
     # load config from file and command-line arguments
     cfg = get_cfg()
+    add_deeplab_config(cfg)
+    add_maskformer2_config(cfg)
     add_motionnet_config(cfg)
     cfg.merge_from_file(args.config_file)
 
@@ -27,7 +30,7 @@ def get_parser():
     parser = argparse.ArgumentParser(description="Train motion net")
     parser.add_argument(
         "--config-file",
-        default="configs/bmcc.yaml",
+        default="configs/opd_c_real.yaml",
         metavar="FILE",
         help="path to config file",
     )
