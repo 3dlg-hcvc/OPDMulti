@@ -12,12 +12,12 @@ This repository contains the implementation of **OPDFormer** based methods for t
 
 ## Content
 
-- [Setup](#Setup)
-- [Dataset](#Dataset)
-- [Training](#Training)
-- [Evaluation](#Evaluation)
-- [Pretrained Models](#Pretrained-Models)
-- [Visualization](#Visualization)
+- [Setup](#setup)
+- [Dataset](#dataset)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Pretrained Models](#pretrained-models)
+- [Visualization](#visualization)
 
 
 
@@ -48,8 +48,8 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) to **dataset/** folder and extract the content. \
-We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data_process](data_process).
+Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) to **dataset/** folder and extract the content. The downloaded data format documentation can be found in [data](data/README.md#downloaded-data-organization).  \
+We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data](data/README.md#data-processing-procedure).
 
 If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
 

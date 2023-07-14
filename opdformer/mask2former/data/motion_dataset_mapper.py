@@ -1,3 +1,5 @@
+# This script has been created by Hanxiao Jiang and Xiaohao Sun based on the Mask2Former repository.
+# Original Source: https://github.com/facebookresearch/Mask2Former/blob/main/mask2former/data/dataset_mappers/mask_former_instance_dataset_mapper.py
 from detectron2.data import *
 from detectron2.data import detection_utils as utils
 from detectron2.data import transforms as T
