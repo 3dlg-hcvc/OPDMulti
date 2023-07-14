@@ -24,6 +24,35 @@ After the above procedure, we further process the processed MultiScan dataset to
 python annotation_update.py input_dir=<PATH_TO_PROCESSED_DATA> output_dir=<PATH_TO_PROCESSED_DATA>
 python split_mask.py input_dir=<PATH_TO_PROCESSED_DATA>
 ```
+Then, we can get the motion annotation (.json file) for the openable part in each frame. The annotation format is as follows:
+```json
+{
+    "intrinsic": {
+        "matrix": "9x1 vector of column major camera intrinsics"
+    },
+    "extrinsic": {
+        "matrix": "16x1 vector of column major camera extrinsics (camera extrinsic)"
+    },
+    "diagonal": "Diagonal length of the scene",
+    "articulation": [
+        {
+            "bbox": "Bounding box of the openable part",
+            "axis": "aligned axis of the joint in object local common coordinate frame",
+            "isClosed": "bool type, whether the part is close or not",
+            "origin": "aligned origin of the joint in object local common coordinate frame",
+            "pixel_num": "number of pixels of the openable part (this is for further frame filter procedure)",  
+            "partId": "part ID",
+            "part_label": "part label",
+            "rangeMin": "min range of the motion",
+            "rangeMax": "max range of the motion", 
+            "state": "current state (degree/length) of the corresponding part",
+            "type": "articulation type rotation or translation"        
+        }
+        "..."
+    ]
+}
+```
+
 Get the name mapping to rename the scans into consistent format and get the diagonal of each scan
 ```sh
 cd ../process
@@ -44,3 +73,20 @@ python final_dataset.py
 python convert_h5.py
 ```
 * In the above procedures, there are some directories in the code need to be modified manually depends on how you save the processed the dataset.
+
+After the above data processing procedure, the data directory will be organized as follows:
+```shell
+MotionDataset
+├── annotations
+│   ├── MotionNet_train.json
+│   ├── MotionNet_val.json
+│   ├── MotionNet_test.json
+├── depth
+│   ├── {scene_id}_{frame_id}-d.png
+├── train
+│   ├── {scene_id}_{frame_id}.png
+├── test
+│   ├── {scene_id}_{frame_id}.png
+├── valid
+│   ├── {scene_id}_{frame_id}.png
+```
