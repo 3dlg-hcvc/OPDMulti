@@ -1,12 +1,12 @@
 # Downloaded data organization
 The downloaded data organized as follows:
-```shell
+```PowerShell
 OPDMulti
 ├── MotionDataset_h5
 │   ├── annotations
-│   |   ├── MotionNet_test.json
-│   |   ├── MotionNet_train.json
-│   |   ├── MotionNet_valid.json
+│   │   ├── MotionNet_test.json
+│   │   ├── MotionNet_train.json
+│   │   ├── MotionNet_valid.json
 │   ├── depth.h5
 │   ├── test.h5
 │   ├── train.h5
@@ -161,7 +161,7 @@ python final_dataset.py
 python convert_h5.py
 ```
 After the above data processing procedure, the data directory will be organized as follows:
-```shell
+```PowerShell
 MotionDataset
 ├── annotations
 │   ├── MotionNet_train.json
