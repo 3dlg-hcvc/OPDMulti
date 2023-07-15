@@ -46,3 +46,4 @@ model_ts*.txt
 .idea
 .vscode
 _darcs
+output/

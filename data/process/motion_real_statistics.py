@@ -3,28 +3,59 @@ import glob
 import json
 import numpy as np
 import pdb
+import argparse
 from tqdm import tqdm
 from tqdm.contrib.concurrent import process_map
 from functools import partial
 
-data_dir = {"all": "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed"}
-name_map_path = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/real_name_V3.json"
-datasets = ['all']
+def get_parser():
+    parser = argparse.ArgumentParser(description="Motion_real_diagonal")
+    parser.add_argument(
+        "--name_map_path",
+        default=f"../mask2d/output/data_statistics/real_name_V3.json",
+        metavar="FILE",
+        help="path for name mapping dir",
+    )
+    parser.add_argument(
+        "--data_dir",
+        default={"all": "../mask2d/output/opdmulti_V3_processed"},
+        metavar="DICT",
+        help="dictionary of paths for different set of processed opdmulti data",
+    )
+    parser.add_argument(
+        "--datasets",
+        default=["all"],
+        help="dataset sets",
+    )
+    parser.add_argument(
+        "--scan_split_dir",
+        default="../mask2d/output/data_statistics",
+        metavar="DIR",
+        help="directory of scan id split list for train/val/test file",
+    )
+    parser.add_argument(
+        "--output_dir",
+        default="../mask2d/output/data_statistics/scan_list",
+        metavar="DIR",
+        help="output directory of the train/val/test renamed scan id",
+    )
 
-TESTIDSPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/test_scanids.json'
-VALIDSIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/val_scanids.json'
-TRAINIDSPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/train_scanids.json'
+    return parser
 
 if __name__ == "__main__":
+    args = get_parser().parse_args()
 
-    with open(name_map_path) as f:
-        name_map = json.load(f)
+    data_dir = args.data_dir
+    name_map_path = args.name_map_path
+    datasets = args.datasets
 
-    total_stat = {}
+    test_scan_list = f"{args.scan_split_dir}/test_scan.json"
+    val_scan_list = f"{args.scan_split_dir}/valid_scan.json"
+    train_scan_list = f"{args.scan_split_dir}/train_scan.json"
 
-    test_scan_list = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/test_scan.json"
-    val_scan_list = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/valid_scan.json"
-    train_scan_list = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/train_scan.json"
+    TESTIDSPATH = f'{args.output_dir}/test_scanids.json'
+    VALIDSIDPATH = f'{args.output_dir}/val_scanids.json'
+    TRAINIDSPATH = f'{args.output_dir}/train_scanids.json'
 
     test_ids_file = open(test_scan_list)
     test_scans = json.load(test_ids_file)
@@ -37,6 +68,11 @@ if __name__ == "__main__":
     train_ids_file = open(train_scan_list)
     train_scans = json.load(train_ids_file)
     train_ids_file.close()
+
+    with open(name_map_path) as f:
+        name_map = json.load(f)
+
+    total_stat = {}
 
     test_ids = []
     val_ids = []

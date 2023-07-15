@@ -1,15 +1,37 @@
 import glob
 import os
 import pdb
+import argparse
 
-PROCESSPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/all/'
-DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3/'
+def get_parser():
+    parser = argparse.ArgumentParser(description="convert_coco")
+    parser.add_argument(
+        "--input_dir",
+        default=f"../mask2d/output/opdmulti_V3_output_split/all/",
+        metavar="DIR",
+        help="directory of input data",
+    )
+
+    parser.add_argument(
+        "--output_dir",
+        default=f"../mask2d/output/MotionDataset_V3/",
+        metavar="DIR",
+        help="directory of output data",
+    )
+
+    return parser
+
 
 def existDir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
 
 if __name__ == "__main__":
+    args = get_parser().parse_args()
+    
+    PROCESSPATH = args.input_dir
+    DATASETPATH = args.output_dir
+
     # Create the dirs
     dir_names = ['train/', 'valid/', 'test/', 'annotations/', 'depth/']
     for dir_name in dir_names:

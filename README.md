@@ -2,7 +2,7 @@
 [Xiaohao Sun*](https://ca.linkedin.com/in/xiaohao-sun-237537195?trk=public_profile_browsemap), [Hanxiao Jiang*](https://jianghanxiao.github.io/), [Manolis Savva](https://msavva.github.io/), [Angel Xuan Chang](http://angelxuanchang.github.io/)
 
 ## Overview
-This repository contains the implementation of **OPDFormer** based methods for the new proposed **OPDMulti** task and corresponding dataset. The code is based on [Detectron2](https://github.com/facebookresearch/detectron2) and [OPD](https://github.com/3dlg-hcvc/OPD.git). And the **OPDFormer** models was built on [Mask2Former](https://github.com/facebookresearch/Mask2Former).
+This repository contains the implementation of **OPDFormer** based methods for the new proposed **OPDMulti** task and corresponding dataset. The code is based on [Detectron2](https://github.com/facebookresearch/detectron2) and [OPD](https://github.com/3dlg-hcvc/OPD.git). And the **OPDFormer** models were built on [Mask2Former](https://github.com/facebookresearch/Mask2Former).
 
 <p align="center"><img src="fig/teaser.png" width="100%"></p>
 
@@ -208,7 +208,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 ## Visualization
 The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset (4.9G) ([download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0)).
 
-And the visualization is using the inference file, which can be got after the evaluation.
+And the visualization uses the inference file, which can be obtained after the evaluation.
 * Visualize the GT with 1000 random images in val set 
   ```sh
   cd opdformer

@@ -1,13 +1,30 @@
 import h5py
 import os
 import glob
+import argparse
 import numpy as np
 import multiprocessing
 from time import time
 from PIL import Image
 
-DATASETPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3'
-NEWPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/MotionDataset_V3_h5'
+def get_parser():
+    parser = argparse.ArgumentParser(description="convert_coco")
+    parser.add_argument(
+        "--input_dir",
+        default=f"../mask2d/output/MotionDataset_V3",
+        metavar="DIR",
+        help="directory of the input data",
+    )
+
+    parser.add_argument(
+        "--output_dir",
+        default=f"../mask2d/output/MotionDataset_V3_h5",
+        metavar="DIR",
+        help="directory of the output data",
+    )
+
+    return parser
+
 
 def existDir(dir):
     if not os.path.exists(dir):
@@ -57,6 +74,11 @@ def convert_h5(dir):
                 print(f"{dir}: {i}/{num_files}")
 
 if __name__ == "__main__":
+    args = get_parser().parse_args()
+    
+    DATASETPATH = args.input_dir
+    NEWPATH = args.output_dir
+
     start = time()
     pool = multiprocessing.Pool(processes=16)
 

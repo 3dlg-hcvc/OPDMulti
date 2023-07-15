@@ -4,14 +4,43 @@ import json
 import glob
 import pdb
 import statistics
+import argparse
 from multiscan.utils import io
 
-object_info_path = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed/annotation"
-real_attr_path = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/real-attr-V3.json"
-real_name_map_path = "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/data_statistics/real_name_V3.json"
+def get_parser():
+    parser = argparse.ArgumentParser(description="Motion_real_diagonal")
+    parser.add_argument(
+        "--motion_anno_path",
+        default="../mask2d/output/opdmulti_V3_processed/annotation",
+        metavar="DIR",
+        help="path to the motion annotation directory",
+    )
+    parser.add_argument(
+        "--real_attr_path",
+        default=f"../mask2d/output/data_statistics/real-attr-V3.json",
+        metavar="FILE",
+        help="path for real attr file saving dir",
+    )
+    parser.add_argument(
+        "--real_name_map_path",
+        default=f"../mask2d/output/data_statistics/real_name_V3.json",
+        metavar="FILE",
+        help="path for name mapping saving dir",
+    )
+
+    return parser
 
 # not need scene diameter
 if __name__ == "__main__":
+    args = get_parser().parse_args()
+
+    motion_anno_path = args.motion_anno_path
+    real_attr_path = args.real_attr_path
+    real_name_map_path = args.real_name_map_path
+
+    import pdb
+    pdb.set_trace()
+
     datasets = ["."]
 
     diagonal_dict = {}
@@ -20,7 +49,7 @@ if __name__ == "__main__":
     real_name_map = {}
     tmp_scanid = []
     for dataset in datasets:
-        anno_paths = glob.glob(f"{object_info_path}/{dataset}/*.json")
+        anno_paths = glob.glob(f"{motion_anno_path}/{dataset}/*.json")
         # pdb.set_trace()
         for anno_path in anno_paths:
             anno_file = open(anno_path)

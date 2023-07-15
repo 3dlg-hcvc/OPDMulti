@@ -9,9 +9,16 @@ import json
 import pdb
 import pandas as pd
 
-# PROCESSDATAPATH = '/localhome/hja40/Desktop/Research/proj-motionnet/Dataset/process_data_real/'
-# PROCESSDATAPATH = '/Users/sun_xh/multiopd/scripts/back_project/output/'
-PROCESSDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/all/'
+def get_parser():
+    parser = argparse.ArgumentParser(description="convert_coco")
+    parser.add_argument(
+        "--input_dir",
+        default=f"../mask2d/output/opdmulti_V3_output_split/all/",
+        metavar="DIR",
+        help="directory of the processed data splits",
+    )
+
+    return parser
 
 def existDir(dir):
     if not os.path.exists(dir):
@@ -216,6 +223,9 @@ def save_json(data, save_path):
     fo.close()
 
 if __name__ == "__main__":
+    args = get_parser().parse_args()
+
+    PROCESSDATAPATH = args.input_dir
 
     annotation_data_path = PROCESSDATAPATH + 'coco_annotation/'
     existDir(annotation_data_path)

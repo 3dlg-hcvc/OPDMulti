@@ -4,16 +4,33 @@ import json
 import multiprocessing
 from time import time
 import pdb
+import argparse
 from tqdm import tqdm
 from tqdm.contrib.concurrent import process_map
 from functools import partial
 
-# Split the raw dataset into train/valid/test set based on the splitted model ids
-TESTIDSPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/test_scanids.json'
-VALIDIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/val_scanids.json'
-TRAINIDPATH = '/localhome/xsa55/Xiaohao/multiopd/data_archive/MultiScan_dataset/scan_list/train_scanids.json'
-RAWDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed/'
-OUTPUTDATAPATH = '/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_output_split/'
+def get_parser():
+    parser = argparse.ArgumentParser(description="Motion_real_diagonal")
+    parser.add_argument(
+        "--scan_id_dir",
+        default=f"../mask2d/output/data_statistics/scan_list",
+        metavar="DIR",
+        help="directory of the train/val/test renamed scan id",
+    )
+    parser.add_argument(
+        "--data_dir",
+        default=f"../mask2d/output/opdmulti_V3_processed/",
+        metavar="DIR",
+        help="directory of the processed dataset",
+    )
+    parser.add_argument(
+        "--output_dir",
+        default=f"../mask2d/output/opdmulti_V3_output_split/",
+        metavar="DIR",
+        help="output directory of the splited processed dataset",
+    )
+
+    return parser
 
 def existDir(dir):
     if not os.path.exists(dir):
@@ -98,6 +115,14 @@ def split(anno_path, types, test_ids, valid_ids, train_ids):
 
 
 if __name__ == "__main__":
+    args = get_parser().parse_args()
+
+    TESTIDSPATH = f'{args.scan_id_dir}/test_scanids.json'
+    VALIDIDPATH = f'{args.scan_id_dir}/val_scanids.json'
+    TRAINIDPATH = f'{args.scan_id_dir}/train_scanids.json'
+    RAWDATAPATH = args.data_dir
+    OUTPUTDATAPATH = args.output_dir
+
     start = time()
     pool = multiprocessing.Pool(processes=16)
 
