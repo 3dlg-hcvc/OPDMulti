@@ -64,13 +64,8 @@ python train.py \
 --input-format <RGB/depth/RGBD> \
 --model_attr_path <PATH_TO_ATTR> 
 ```
-* Model:
-    * OPDFormer-C: 
-        * --config-file `/opdfomer/configs/opd_c_real.yaml`
-    * OPDFormer-O:
-        * --config-file `/opdfomer/configs/opd_o_real.yaml`
-    * OPDFormer-P:
-        * --config-file `/opdfomer/configs/opd_p_real.yaml`
+* `<MODEL_CONFIG>`: the config file path for different model variants can be found in the table [OPDMulti](#opdmulti) "Model Name" column.
+    
 * Dataset:
     * --data-path `OPDMulti/MotionDataset_h5`
     * --model_attr_path: ` OPDMulti/obj_info.json `
@@ -117,7 +112,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <th valign="bottom">OPDReal Model</th>
 <!-- TABLE BODY -->
 <!-- ROW: OPDFormer with RGB input -->
-<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">RGB</td>
 <td align="center">31.9</td>
 <td align="center">30.5</td>
@@ -135,7 +130,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth">model</a>(175M)</td>
 </tr>
-<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGB</td>
 <td align="center">34.1</td>
 <td align="center">32.8</td>
@@ -145,7 +140,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with depth input -->
-<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">depth</td>
 <td align="center">22.1</td>
 <td align="center">19.9</td>
@@ -163,7 +158,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_o_depth.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth">model</a>(175M)</td>
 </tr>
-<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">depth</td>
 <td align="center">23.0</td>
 <td align="center">20.8</td>
@@ -173,7 +168,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with RGBD input -->
-<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-C</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">RGBD</td>
 <td align="center">25.3</td>
 <td align="center">23.6</td>
@@ -191,7 +186,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">model</a>(175M)</td>
 </tr>
-<tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-P</a></td>
+<tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGBD</td>
 <td align="center">28.6</td>
 <td align="center">26.5</td>
