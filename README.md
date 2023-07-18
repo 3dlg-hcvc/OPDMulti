@@ -48,10 +48,7 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our `[OPDMulti]` dataset (7.1G) [download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) to **dataset/** folder and extract the content. The downloaded data format documentation can be found in [data](data/README.md#downloaded-data-organization).  \
-We also provide the code about how to process the [MultiScan](https://github.com/smartscenes/multiscan.git) dataset to OPDMulti dataset. So, you can process your own dataset through this procedure to get the customized dataset for OPDMulti task. Details can be found in [data](data/README.md#data-processing-procedure).
-
-If you want to try our model on OPDSynth and OPDReal datasets, you can find the data in original [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
+Download our [OPDMulti](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) dataset (7.1G) and extract it inside dataset/ folder. Make sure the data is in [this](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#downloaded-data-organization) format.  You can follow [these](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#data-processing-procedure) steps if you want to convert your data to OPDMulti dataset. To try our model on OPDSynth and OPDReal datasets, download the data from [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
 
 
 
@@ -77,11 +74,12 @@ python train.py \
 * Dataset:
     * --data-path `OPDMulti/MotionDataset_h5`
     * --model_attr_path: ` OPDMulti/obj_info.json `
-* Using pretrained model on OPDReal dataset (we use the pretrained model on OPDReal dataset to finetune the model on OPDMulti dataset in our paper): add the following command in the training command: 
-    
-    `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL>`
+* You can add the following command to use the model weights, pretrained on OPDReal dataset. We finetune this model on OPDMulti dataset:
+
+  `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL>`
+
 ## Evaluation
-Evaluate with pretrained model, or your own trained model on val set
+To evaluate, use the following command:
 
 ```sh
 python evaluate_on_log.py \
@@ -93,16 +91,17 @@ python evaluate_on_log.py \
 --opts MODEL.WEIGHTS <PPRETRAINED_MODEL>
 ```
 
-* Model needs the same options as above
-* Evaluate on test set: add things to `--opts DATASETS.TEST "('MotionNet_test',)"` (The complete version will be `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL> DATASETS.TEST "('MotionNet_test',)"`)
-* Use inference result file instead of pretrained model: --inference-file `<PATH_TO_INFERENCE_FILE>`, this will directly evaluate using the results without inferencing again
+* Evaluate on test set: `--opts MODEL.WEIGHTS <PPRETRAINED_MODEL> DATASETS.TEST "('MotionNet_test',)"`.
+* To evaluate directly on pre-saved inference file, pass the file path as an argument `--inference-file <PATH_TO_INFERENCE_FILE>`.
 
 ## Pretrained-Models
 
 You can download our pretrained model weights (on both OPDReal and OPDMulti) for different input format (RGB, RGB-D, depth) from the following table.
 
-For people who want to just test/evaluate our model, you can download the pretrained model weights on OPDMulti dataset.
-For those who want to train by themselves, you can download the pretrained OPDReal model weights to train your own model on OPDMulti.
+To evaluate our model, download the pretrained weights from the OPDMulti column. And to finetune on custom data, download the pretrained weights from OPDReal column.
+
+### How to read the table
+The "Model Name" column contains a link to the config file. To train/evaluate the different model variants, change the ``` --config-file /path/to/config/name.yaml``` in the training/evaluation command. 
 
 ### OPDMulti
 <table><tbody>
@@ -206,7 +205,7 @@ For those who want to train by themselves, you can download the pretrained OPDRe
 
 
 ## Visualization
-The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. So, we currently only support to visualize based on raw format dataset (4.9G) ([download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0)).
+The visualization code is based on [OPD](https://github.com/3dlg-hcvc/OPD.git) repository. We only support visualization based on raw dataset format ([download link](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) (4.9G)).
 
 And the visualization uses the inference file, which can be obtained after the evaluation.
 * Visualize the GT with 1000 random images in val set 
