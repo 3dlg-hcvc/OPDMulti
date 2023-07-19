@@ -127,7 +127,7 @@ The MotionNet_{train/test/valid}.json file includes annotations for each frame i
 }
 ```
 The obj_info.json file contains the information of each openable object. The format is as follows:
-```json
+```javascript
 "scene_00000_00_5340_18": { // "{scan_id}_{frame_id}_{object_id}"
     "object_pose": [
       0.9450423736594992,
