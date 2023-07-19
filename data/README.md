@@ -15,7 +15,7 @@ OPDMulti
 ```
 The depth.h5 file is a compressed .h5 file that stores all the depth images. The {train/valid/test}.h5 file is a compressed .h5 file containing all the RGB images from the respective train, validation, or test set.
 The MotionNet_{train/test/valid}.json file includes annotations for each frame in the COCO format. The formatting is detailed as follows:
-```json
+```javascript
 {
     "annotations":[
         {
