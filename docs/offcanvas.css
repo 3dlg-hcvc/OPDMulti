@@ -107,3 +107,20 @@ h2 {
 .vspace-top {
     margin-top: 30px;
 }
+
+td.image-box {
+  width: 256px;  /* or whatever width you want */
+  height: 192px; /* or whatever height you want */
+  border: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden; /* This will hide the parts of the image/GIF that overflow the box */
+}
+
+td.image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* This will remove the bottom space which is by default for inline elements */
+  margin: auto;   /* Centering the image if it doesn't take up the full width or height */
+}
