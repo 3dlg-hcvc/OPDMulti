@@ -93,10 +93,14 @@ python evaluate_on_log.py \
 
 You can download our pretrained model weights (on both OPDReal and OPDMulti) for different input format (RGB, RGB-D, depth) from the following table.
 
-To evaluate our model, download the pretrained weights from the OPDMulti column. And to finetune on custom data, download the pretrained weights from OPDReal column.
+
+For model evaluation, download pretrained weights from the OPDMulti column. To finetune with custom data, use pretrained weights from OPDReal column, which are also utilized in OPDMulti results.
 
 ### How to read the table
-The "Model Name" column contains a link to the config file. To train/evaluate the different model variants, change the ``` --config-file /path/to/config/name.yaml``` in the training/evaluation command. 
+The "Model Name" column contains a link to the config file. "PSeg" is the part segmentation score, "+M" adds motion type prediction, 
+"+MA" includes axis prediction, and "+MAO" further incorporates origin prediction. 
+
+To train/evaluate the different model variants, change the ``` --config-file /path/to/config/name.yaml``` in the training/evaluation command. 
 
 ### OPDMulti
 <table><tbody>
@@ -104,7 +108,7 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <!-- TABLE HEADER -->
 <th valign="bottom">Model Name</th>
 <th valign="bottom">Input</th>
-<th valign="bottom">PDet</th>
+<th valign="bottom">PSeg</th>
 <th valign="bottom">+M</th>
 <th valign="bottom">+MA</th>
 <th valign="bottom">+MAO</th>
@@ -114,84 +118,84 @@ The "Model Name" column contains a link to the config file. To train/evaluate th
 <!-- ROW: OPDFormer with RGB input -->
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">RGB</td>
-<td align="center">31.9</td>
-<td align="center">30.5</td>
-<td align="center">14.1</td>
-<td align="center">12.9</td>
+<td align="center">29.1</td>
+<td align="center">28.0</td>
+<td align="center">13.5</td>
+<td align="center">12.3</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_c_rgb.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_c_rgb.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGB</td>
-<td align="center">30.4</td>
-<td align="center">28.8</td>
-<td align="center">5.1</td>
-<td align="center">1.6</td>
+<td align="center">27.8</td>
+<td align="center">26.3</td>
+<td align="center">5.0</td>
+<td align="center">1.5</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGB</td>
-<td align="center">34.1</td>
-<td align="center">32.8</td>
-<td align="center">20.1</td>
-<td align="center">16.0</td>
+<td align="center">31.4</td>
+<td align="center">30.4</td>
+<td align="center">18.9</td>
+<td align="center">15.1</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_p_rgb.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with depth input -->
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">depth</td>
-<td align="center">22.1</td>
-<td align="center">19.9</td>
+<td align="center">20.9</td>
+<td align="center">18.9</td>
 <td align="center">11.4</td>
-<td align="center">10.2</td>
+<td align="center">10.1</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_c_depth.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_c_depth.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">depth</td>
-<td align="center">24.9</td>
-<td align="center">22.6</td>
-<td align="center">5.8</td>
+<td align="center">23.4</td>
+<td align="center">21.5</td>
+<td align="center">5.9</td>
 <td align="center">1.9</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_o_depth.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">depth</td>
-<td align="center">23.0</td>
-<td align="center">20.8</td>
-<td align="center">16.1</td>
-<td align="center">13.9</td>
+<td align="center">21.7</td>
+<td align="center">19.8</td>
+<td align="center">15.4</td>
+<td align="center">13.5</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_p_depth.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with RGBD input -->
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
 <td align="center">RGBD</td>
-<td align="center">25.3</td>
-<td align="center">23.6</td>
-<td align="center">14.2</td>
-<td align="center">13.5</td>
+<td align="center">24.2</td>
+<td align="center">22.7</td>
+<td align="center">14.1</td>
+<td align="center">13.4</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_c_rgbd.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGBD</td>
-<td align="center">24.1</td>
-<td align="center">22.0</td>
-<td align="center">6.6</td>
+<td align="center">23.1</td>
+<td align="center">21.2</td>
+<td align="center">6.7</td>
 <td align="center">2.6</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGBD</td>
-<td align="center">28.6</td>
-<td align="center">26.5</td>
-<td align="center">18.7</td>
-<td align="center">17.2</td>
+<td align="center">27.4</td>
+<td align="center">25.5</td>
+<td align="center">18.1</td>
+<td align="center">16.7</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_p_rgbd.pth">model</a>(169M)</td>
 <td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth">model</a>(169M)</td>
 </tr>
