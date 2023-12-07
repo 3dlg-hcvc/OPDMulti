@@ -7,7 +7,8 @@ This repository contains the implementation of **OPDFormer** based methods for t
 <p align="center"><img src="fig/teaser.png" width="100%"></p>
 
 
-[arXiv](https://arxiv.org/abs/2303.14087)&nbsp; [Website](https://3dlg-hcvc.github.io/OPDMulti/)
+[arXiv](https://arxiv.org/abs/2303.14087)&nbsp; [Website](https://3dlg-hcvc.github.io/OPDMulti/)&nbsp;
+[Demo](https://huggingface.co/spaces/3dlg-hcvc/opdmulti-demo)
 
 
 ## Content
