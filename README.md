@@ -49,7 +49,7 @@ python setup.py build install
 ```
 
 ## Dataset
-Download our [OPDMulti](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) dataset (7.1G) and extract it inside `./dataset/` folder. Make sure the data is in [this](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#downloaded-data-organization) format.  You can follow [these](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#data-processing-procedure) steps if you want to convert your data to OPDMulti dataset. To try our model on OPDSynth and OPDReal datasets, download the data from [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
+Download our [OPDMulti](https://docs.google.com/forms/d/e/1FAIpQLSeG1Jafcy9P_OFBJ8WffYt6WJsJszXPqKIgQz0tGTYYuhm4SA/viewform?vc=0&c=0&w=1&flr=0) dataset (7.7G) and extract it inside `./dataset/` folder. Make sure the data is in [this](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#downloaded-data-organization) format.  You can follow [these](https://github.com/3dlg-hcvc/OPDMulti/blob/master/data/README.md#data-processing-procedure) steps if you want to convert your data to OPDMulti dataset. To try our model on OPDSynth and OPDReal datasets, download the data from [OPD](https://github.com/3dlg-hcvc/OPD#dataset) repository.
 
 
 
