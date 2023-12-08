@@ -177,12 +177,12 @@ pip install plyfile
 ```
 
 ## Process procedure
-First, we preprocess the MultiScan dataset to 2D image with corresponding annotations: 
+First, we preprocess the MultiScan dataset to extract 2D image with corresponding annotations: 
 ```sh
 cd data_process/mask2d
 python mask2d.py input_dir=<PATH_TO_MULTISCAN_DATA> output_dir=<OUTPUT_DIR>
 ```
-After the above procedure, we further process the processed MultiScan dataset to have the annotations only with the openable object and parts.
+After the above procedure, we further process the extracted data to the final OPDMulti data format.
 ```sh
 python process.py input_dir=<PATH_TO_EXTRACTED_DATA> processed_output_dir=<FINAL_OUTPUT_DIR>>
 ```
@@ -206,7 +206,7 @@ Convert the dataset to COCO format that detectron2 needs
 python convert_coco.py
 python final_dataset.py
 ``` -->
-After the above data processing procedure, we can get both the orinigal processed data fomatted as below:
+After the above data processing procedure, we can get the orinigal processed data fomatted as below:
 ```PowerShell
 MotionDataset
 ├── annotations
@@ -222,4 +222,4 @@ MotionDataset
 ├── valid
 │   ├── {new_scan_id}_{frame_id}.png
 ```
-And the compressed .h5 format data, which is finally used to train our model. Besides, the format is described at the begining of this README.
+And we can also get the compressed .h5 format data, which is finally used to train our model. Besides, the format is described at the begining of this README.
