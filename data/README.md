@@ -184,10 +184,9 @@ python mask2d.py input_dir=<PATH_TO_MULTISCAN_DATA> output_dir=<OUTPUT_DIR>
 ```
 After the above procedure, we further process the processed MultiScan dataset to have the annotations only with the openable object and parts.
 ```sh
-python annotation_update.py input_dir=<PATH_TO_PROCESSED_DATA> output_dir=<PATH_TO_PROCESSED_DATA>
-python split_mask.py input_dir=<PATH_TO_PROCESSED_DATA>
+python process.py input_dir=<PATH_TO_EXTRACTED_DATA> processed_output_dir=<FINAL_OUTPUT_DIR>>
 ```
-Then, we can get the motion annotation (.json file) for the openable part in each frame.
+<!-- Then, we can get the motion annotation (.json file) for the openable part in each frame.
 
 Next, get the name mapping to rename the scans into consistent format and get the diagonal of each scan
 ```sh
@@ -206,8 +205,8 @@ Convert the dataset to COCO format that detectron2 needs
 ```sh
 python convert_coco.py
 python final_dataset.py
-```
-After the above data processing procedure, the data directory will be organized as follows:
+``` -->
+After the above data processing procedure, we can get both the orinigal processed data fomatted as below:
 ```PowerShell
 MotionDataset
 ├── annotations
@@ -223,7 +222,4 @@ MotionDataset
 ├── valid
 │   ├── {new_scan_id}_{frame_id}.png
 ```
-Finally, convert the images to `.h5` format, we can get the final dataset structured follow the [organization](#downloaded-data-organization) at the begining.
-```
-python convert_h5.py
-```
+And the compressed .h5 format data, which is finally used to train our model. Besides, the format is described at the begining of this README.

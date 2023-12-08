@@ -21,7 +21,14 @@ output_annotation_update_dir: "${output_dir}/{scanId}/annotation_update"
 output_frame_info_dir: "${output_dir}/{scanId}/frame_info"
 
 origin_data_dir: "/project/3dlg-hcvc/multiscan/anonymous_data2"
-output_initial_data_dir: "/localhome/xsa55/Xiaohao/multiopd/scripts/mask2d/output/opdmulti_V3_processed"
+
+processed_output_dir:
+annotation_update_dir: "${input_dir}/{scanId}/annotation_update"
+output_initial_data_dir: "${processed_output_dir}/opdmulti_processed"
+output_split_data_dir: "${processed_output_dir}/opdmulti_split"
+output_dir_final: "${processed_output_dir}/MotionDataset"
+output_dir_final_h5: "${processed_output_dir}/MotionDataset_h5"
+data_statistics_dir: "${processed_output_dir}/data_statistics"
 
 step: 60
 num_frames: 0
@@ -30,6 +37,7 @@ image_height: 192
 threshold: 0.05
 
 virtual_camera: False
+
 
 scan_processed: processed.csv
 

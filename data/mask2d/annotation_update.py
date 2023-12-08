@@ -21,13 +21,6 @@ from time import time
 import logging
 from tqdm.contrib.concurrent import process_map
 from functools import partial
-"""
-Modify annotation to get a final version following the previous format
-read annotation from both processed articulation annotation and original annotation
-read projected mask
-Add diameter of diagonal length
-Add camera intrinsic and extrinsic
-"""
 
 
 @dataclass
@@ -282,6 +275,8 @@ def main(cfg):
         process(scan_id, cfg, threshold)
         pdb.set_trace()
     process_map(partial(process, threshold=threshold, cfg = cfg), scan_ids, chunksize=1)
+
+    
 
     return
 
