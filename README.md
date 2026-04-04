@@ -123,8 +123,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">28.0</td>
 <td align="center">13.5</td>
 <td align="center">12.3</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_c_rgb.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_c_rgb.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGB/opdmulti_opdformer_c_rgb.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGB/opdreal_opdformer_c_rgb.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGB</td>
@@ -132,8 +132,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">26.3</td>
 <td align="center">5.0</td>
 <td align="center">1.5</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_o_rgb.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGB/opdmulti_opdformer_o_rgb.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGB/opdreal_opdformer_o_rgb.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGB</td>
@@ -141,8 +141,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">30.4</td>
 <td align="center">18.9</td>
 <td align="center">15.1</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGB/opdmulti_opdformer_p_rgb.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGB/opdreal_opdformer_p_rgb.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGB/opdmulti_opdformer_p_rgb.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGB/opdreal_opdformer_p_rgb.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with depth input -->
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
@@ -151,8 +151,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">18.9</td>
 <td align="center">11.4</td>
 <td align="center">10.1</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_c_depth.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_c_depth.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/depth/opdmulti_opdformer_c_depth.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/depth/opdreal_opdformer_c_depth.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">depth</td>
@@ -160,8 +160,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">21.5</td>
 <td align="center">5.9</td>
 <td align="center">1.9</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_o_depth.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_o_depth.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/depth/opdmulti_opdformer_o_depth.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/depth/opdreal_opdformer_o_depth.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">depth</td>
@@ -169,8 +169,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">19.8</td>
 <td align="center">15.4</td>
 <td align="center">13.5</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/depth/opdmulti_opdformer_p_depth.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/depth/opdreal_opdformer_p_depth.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/depth/opdmulti_opdformer_p_depth.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/depth/opdreal_opdformer_p_depth.pth">model</a>(169M)</td>
 </tr>
 <!-- ROW: OPDFormer with RGBD input -->
 <tr><td align="left"><a href="opdformer/configs/opd_c_real.yaml">OPDFormer-C</a></td>
@@ -179,8 +179,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">22.7</td>
 <td align="center">14.1</td>
 <td align="center">13.4</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_c_rgbd.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGBD/opdmulti_opdformer_c_rgbd.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGBD/opdreal_opdformer_c_rgbd.pth">model</a>(169M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_o_real.yaml">OPDFormer-O</a></td>
 <td align="center">RGBD</td>
@@ -188,8 +188,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">21.2</td>
 <td align="center">6.7</td>
 <td align="center">2.6</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGBD/opdmulti_opdformer_o_rgbd.pth">model</a>(175M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGBD/opdreal_opdformer_o_rgbd.pth">model</a>(175M)</td>
 </tr>
 <tr><td align="left"><a href="opdformer/configs/opd_p_real.yaml">OPDFormer-P</a></td>
 <td align="center">RGBD</td>
@@ -197,8 +197,8 @@ To train/evaluate the different model variants, change the ``` --config-file /pa
 <td align="center">25.5</td>
 <td align="center">18.1</td>
 <td align="center">16.7</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdmulti/RGBD/opdmulti_opdformer_p_rgbd.pth">model</a>(169M)</td>
-<td align="center"><a href="https://aspis.cmpt.sfu.ca/projects/opdmulti/models/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdmulti/RGBD/opdmulti_opdformer_p_rgbd.pth">model</a>(169M)</td>
+<td align="center"><a href="https://huggingface.co/datasets/3dlg-hcvc/OPDMulti/resolve/main/opdreal/RGBD/opdreal_opdformer_p_rgbd.pth">model</a>(169M)</td>
 </tr>
 </tbody></table>
 
