@@ -11,6 +11,7 @@ cython
 scipy
 shapely
 timm
+ninja
 h5py
 submitit
 scikit-image
